@@ -48,7 +48,7 @@ ElementType * deleteElement (SeqList *list, int index) {
         return;
     }    
     list->length--;
-
+    
 }
 // print datalist
 void printDataList(SeqList * list, int length)
