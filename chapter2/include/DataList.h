@@ -13,3 +13,15 @@ void printDataList(SeqList *list, int length);
 
 // delete element
 ElementType * deleteElement(SeqList *list, int index);
+
+// get index element
+ElementType getElement(SeqList *list, int index);
+
+// get elements length
+int getElementLength(SeqList *list); 
+
+// clear elements
+void clearElements (SeqList *list);
+
+// is empty
+int isEmpty(SeqList *list);
