@@ -7,6 +7,7 @@
 
 #include "DataElement.h"
 #include "LinkStack.h"
+#include "LinkQueue.h"
 
 typedef struct BinaryTreeNode {
     DataElement data;
@@ -30,5 +31,11 @@ void PreOrderPrint (BinaryTreeNode * root);
 void InOrderPrint (BinaryTreeNode * root);
 
 void InOrderPrint_Stack (BinaryTreeNode * root);
+
+void PostOrderPrint (BinaryTreeNode * root);
+
+void TestQueue (BinaryTreeNode * root);
+
+void ZOrderPrint_Queue (BinaryTreeNode * root);
 
 #endif

@@ -14,16 +14,27 @@ void testBinaryTree() {
     tree->root = malloc(sizeof(BinaryTreeNode));
     CreateBinaryTree(tree->root);
 
-    PreOrderPrint(tree->root);
+    // puts("pre order:");
+    // PreOrderPrint(tree->root);
+    // puts("");
+
+    // puts("in order:");
+    // InOrderPrint(tree->root);
+    // puts("");
+
+    // puts("no recursive print:");
+
+    // InOrderPrint_Stack(tree->root);
+    // puts("");
+
+    // puts("post order:");
+    // PostOrderPrint(tree->root);
+    // puts("");
+
+    puts("Z order:");
+    ZOrderPrint_Queue(tree->root);
     puts("");
 
-    InOrderPrint(tree->root);
-    puts("");
-
-    puts("no recursive print:");
-
-    InOrderPrint_Stack(tree->root);
-    puts("");
     
     free(tree->root);
 }

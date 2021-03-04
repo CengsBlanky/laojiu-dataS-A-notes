@@ -2,6 +2,9 @@
 
 static int id = 1;
 
+char * numbers[] = {"A", "B", "D", "#", "#", "#", "C", "E", "#", "#", "F", "#", "#"};
+static int charIndex = 0;
+
 void InitBinaryTree (BinaryTree * tree) {
     tree->root = NULL;
     tree->depth = 0;
@@ -13,22 +16,17 @@ void InitBinaryTree (BinaryTree * tree) {
 int CreateBinaryTree (BinaryTreeNode * root) {
     if (!root) return 0;
     char input[NAME_SIZE];
-    gets(input);
-    input[strlen(input)] = '\0';
+    strcpy(input, numbers[charIndex++]);
     if (strcmp(input, "#") == 0) return 0;
     strcpy(root->data.name, input);
     root->data.id = id++;
     root->leftNode = malloc(sizeof(BinaryTreeNode));
     root->rightNode = malloc(sizeof(BinaryTreeNode));
-    printf("Please input left node name:\n");
     if (CreateBinaryTree(root->leftNode) == 0) {
-        printf("end input left node\n");
         free(root->leftNode);
         root->leftNode = NULL;
     }
-    printf("Please input right node name:\n");
     if (CreateBinaryTree(root->rightNode) == 0) {
-        printf("end input right node\n");
         free(root->rightNode);
         root->rightNode = NULL;
     }
@@ -68,4 +66,41 @@ void InOrderPrint_Stack (BinaryTreeNode * root) {
     }
     free(nodePoint);
     nodePoint = NULL;
+}
+
+void PostOrderPrint (BinaryTreeNode * root) {
+    if (root) {
+        PostOrderPrint(root->leftNode);
+        PostOrderPrint(root->rightNode);
+        printf("[%d, %s]->", root->data.id, root->data.name);
+    }
+}
+
+void ZOrderPrint_Queue (BinaryTreeNode * root) {
+    if (!root) return;
+    LinkQueue * queue = malloc(sizeof(LinkQueue));
+    InitQueue(queue);
+    BinaryTreeNode * curNode = root;
+    EnQueue(queue, curNode);
+    // PrintQueue(queue);
+    puts("into while loop");
+    while (!IsEmptyQueue(queue)) {
+        curNode = DeQueue(queue);
+        printf("[%d, %s]->", curNode->data.id, curNode->data.name);
+        if (curNode->leftNode != NULL) {
+            EnQueue(queue, curNode->leftNode);
+        }
+        if (curNode->rightNode != NULL) {
+            EnQueue(queue, curNode->rightNode);
+        }
+    }
+}
+
+void TestQueue (BinaryTreeNode * root) {
+    LinkQueue linkQueue;
+    InitQueue(&linkQueue);
+    for (int i = 0; i < 13; i++) {
+        EnQueue(&linkQueue, root);
+    }
+    PrintQueue(&linkQueue);
 }
