@@ -1,0 +1,39 @@
+# path
+# VPATH=src include bin header obj object lib
+VPATH=include header headers src
+TARGET=main
+# define
+CFLAGS=-Wall
+CC=gcc
+
+Cfiles=$(wildcard *.c)
+Cfiles+=$(wildcard */*.c)
+# CfilesDir=$(sort $(dir $(Cfiles)))
+
+Hfiles=$(wildcard *.h)
+Hfiles+=$(wildcard */*.h)
+HfilesDir=$(sort $(dir $(Hfiles)))
+
+SRCS=$(notdir $(Cfiles))
+
+HEADERS=$(notdir $(Hfiles))
+
+OBJECTS=$(patsubst %.c,%.o,$(SRCS))
+
+CFLAGS+=-I
+CFLAGS+=$(HfilesDir)
+
+.PHONY:default all clean
+
+default: $(TARGET)
+all: default
+
+# rules
+%.o:%.c $(HEADERS)
+	$(CC) $(CFLAGS) -c $< -o $@
+$(TARGET):$(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $@
+
+# clean
+clean:
+	rm -rf $(OBJECTS) $(TARGET)
