@@ -26,5 +26,15 @@ void InitBinaryTree (BinaryTree *tree);
  */
 int CreateBinaryTree(TreeNode * node);
 
+/*
+ * pre order traverse
+ */
+void PreOrderTraverse(TreeNode * node);
+
+/* 
+ * middle order traverse
+ */
+void MiddleOrderTraverse(TreeNode * node);
+
 #endif
 
