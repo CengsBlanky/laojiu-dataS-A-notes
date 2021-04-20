@@ -29,7 +29,7 @@ void TestBinaryTreeTraverse() {
     tree->root = malloc(sizeof(TreeNode));
     CreateBinaryTree(tree->root);
 
-    printf("\nPreOrder:\n");
+    printf("\n前序遍历:\n");
     PreOrderTraverse(tree->root);
     printf("\nMiddleOrder:\n");
     MiddleOrderTraverse(tree->root);

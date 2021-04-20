@@ -1,7 +1,7 @@
 # path
 # VPATH=src include bin header obj object lib
 VPATH=include header headers src
-TARGET=main
+TARGET=./bin/main
 # define
 CFLAGS=-Wall
 CC=gcc
@@ -26,12 +26,12 @@ CFLAGS+=-I
 CFLAGS+=$(HfilesDir)
 
 MKDIR_P=mkdir -p
-OUT_DIR=obj
+OUT_DIR=obj bin
 
 DELETECMD=rm -rf $(OBJECTS) $(TARGET)
 ifeq ($(OS),Windows_NT)
 	DELETECMD=erase /Q *.o $(TARGET) obj
-	TARGET=main.exe
+	TARGET=./bin/main.exe
 endif
 
 .PHONY:directories default all clean
@@ -50,7 +50,7 @@ $(TARGET):$(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o $@
 # run code
 run:
-	./$(TARGET)
+	$(TARGET)
 # clean
 clean:
 	$(DELETECMD)
