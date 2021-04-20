@@ -13,7 +13,6 @@ int main(int argc, char *argv[]) {
     // test binary tree
     // TestBinaryTreeCreation();
     TestBinaryTreeTraverse();
-    system("pause");
     return 0;
 }
 
