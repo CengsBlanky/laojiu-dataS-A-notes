@@ -32,6 +32,7 @@ DELETECMD=rm -rf $(OBJECTS) $(TARGET)
 ifeq ($(OS),Windows_NT)
 	DELETECMD=erase /Q *.o $(TARGET) obj
 	TARGET=./bin/main.exe
+	MKDIR_P=mkdir
 endif
 
 .PHONY:directories default all clean
