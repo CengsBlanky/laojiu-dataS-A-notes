@@ -8,11 +8,15 @@
 
 void TestBinaryTreeCreation();
 void TestBinaryTreeTraverse();
+void TestZTraverse();
+void queueTest();
 
 int main(int argc, char *argv[]) {
     // test binary tree
     // TestBinaryTreeCreation();
-    TestBinaryTreeTraverse();
+    // TestBinaryTreeTraverse();
+    TestZTraverse();
+    // eddeQueue();
     return 0;
 }
 
@@ -35,4 +39,20 @@ void TestBinaryTreeTraverse() {
     MiddleOrderTraverse(tree->root);
     printf("\nPostOrder:\n");
     PostOrderTraverse(tree->root);
+}
+
+void TestZTraverse() {
+    BinaryTree *tree = malloc(sizeof(BinaryTree));
+    InitBinaryTree(tree);
+    tree->root = malloc(sizeof(TreeNode));
+    CreateBinaryTree(tree->root);
+    puts("Z traverse result: \n");
+    ZOrderTraverse(tree->root);
+}
+
+void queueTest() {
+    BinaryTree *tree = malloc(sizeof(BinaryTree));
+    InitBinaryTree(tree);
+    tree->root = malloc(sizeof(TreeNode));
+    CreateBinaryTree(tree->root);
 }

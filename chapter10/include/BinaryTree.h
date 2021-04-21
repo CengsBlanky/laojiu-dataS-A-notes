@@ -8,6 +8,7 @@
 #define BINARYTREE_H_INCLUDED
 
 #include "TreeNode.h"
+#include "LinkedQueue.h"
 
 typedef struct BinaryTree {
     TreeNode * root;
@@ -45,7 +46,10 @@ void PostOrderTraverse(TreeNode * node);
  * 层序遍历的实现
  */
 
-// TODO 实现层序遍历
+// 实现层序遍历
+void ZOrderTraverse(TreeNode * node);
 
+
+void eddeQueue();
 #endif
 

@@ -71,3 +71,47 @@ void PostOrderTraverse(TreeNode * node) {
         printf("[%d, %s]->", node->data.id, node->data.name);
     }
 }
+
+void ZOrderTraverse(TreeNode * node) {
+    // 1. 建立一个队列, 完成初始化工作
+    LinkedQueue * queue = malloc(sizeof(LinkedQueue));
+    InitLinkedQueue(queue);
+    // 2. 把根结点入队
+    enQueue(node, queue);
+    // 3. 判断队列中是否还有结点
+    while (IsEmptyQueue(queue) == 0) {
+        // 只要不是空队列, 就出队一个结点
+        node = deQueue(queue);
+        // 打印出队的结点
+        printf("[%d, %s]->", node->data.id, node->data.name);
+        // 左右结点如果存在, 均入队
+        if (node->rightNode != NULL) {
+            enQueue(node->rightNode, queue);
+        }
+        if (node->leftNode != NULL) {
+            enQueue(node->leftNode, queue);
+        }
+    }
+}
+
+void eddeQueue() {
+    LinkedQueue * queue = malloc(sizeof(LinkedQueue));
+    InitLinkedQueue(queue);
+    int count = 10;
+    int i = 0;
+    char *name = "Tom baby";
+    while (count--) {
+        TreeNode * node = malloc(sizeof(TreeNode));
+        node->data.id = i++;
+        strcpy(node->data.name, name);
+        enQueue(node, queue);
+    }
+    count = 10;
+    printf("[");
+    TreeNode * node = malloc(sizeof(TreeNode));
+    while (count--) {
+        node = deQueue(queue);
+        printf("%d, %s, ", node->data.id, node->data.name);
+    }
+    printf("]\n");
+}

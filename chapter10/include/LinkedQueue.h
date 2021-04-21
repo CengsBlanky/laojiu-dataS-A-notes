@@ -25,7 +25,13 @@ void InitLinkedQueue(LinkedQueue * linkedQueue);
 void enQueue(TreeNode * data, LinkedQueue * linkedQueue);
 
 // 出栈
-void deQueue(TreeNode * data, LinkedQueue * linkedQueue);
+TreeNode * deQueue(LinkedQueue * linkedQueue);
+
+/* 
+ * 队列是否为空
+ * 为空返回1, 否则返回0
+ */
+int IsEmptyQueue(LinkedQueue * linkedQueue);
 
 #endif
 
