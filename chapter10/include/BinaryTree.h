@@ -36,5 +36,16 @@ void PreOrderTraverse(TreeNode * node);
  */
 void MiddleOrderTraverse(TreeNode * node);
 
+/* 
+ * post order traverse
+ */
+void PostOrderTraverse(TreeNode * node);
+
+/* 
+ * 层序遍历的实现
+ */
+
+// TODO 实现层序遍历
+
 #endif
 

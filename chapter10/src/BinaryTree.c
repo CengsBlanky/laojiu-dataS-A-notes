@@ -63,3 +63,11 @@ void MiddleOrderTraverse(TreeNode * node) {
         MiddleOrderTraverse(node->rightNode);
     }
 }
+
+void PostOrderTraverse(TreeNode * node) {
+    if (node) {
+        PostOrderTraverse(node->leftNode);
+        PostOrderTraverse(node->rightNode);
+        printf("[%d, %s]->", node->data.id, node->data.name);
+    }
+}

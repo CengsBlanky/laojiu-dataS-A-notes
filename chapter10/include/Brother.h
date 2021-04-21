@@ -8,6 +8,7 @@
 #define BROTHER_H_INCLUDED
 
 #include "ElementType.h"
+#include <stdlib.h>
 
 typedef struct cbNode {
     ElementType data;
