@@ -31,7 +31,7 @@ OUT_DIR=obj bin
 DELETECMD=rm -rf $(OBJECTS) $(TARGET)
 ifeq ($(OS),Windows_NT)
 	DELETECMD=erase /Q *.o $(TARGET) obj
-	TARGET=./bin/main.exe
+	TARGET=.\bin\main.exe
 	MKDIR_P=mkdir
 endif
 
